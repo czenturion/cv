@@ -34,11 +34,11 @@ h6 {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 1.25rem;
 }
 
 .section {
-    padding: 80px 0;
+    padding: 5rem 0;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -63,7 +63,7 @@ h6 {
 .nav-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 1.25rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -114,20 +114,21 @@ h6 {
 
 /* SECTION 1 — PERSONAL INFO */
 .personal-info {
-    padding-top: 120px;
+    padding-top: 7.5rem;
 }
 
 .personal-info-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    gap: 3.75rem;
     align-items: start;
+    padding: 3.125rem 3.75rem;
 }
 
 .personal-left {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 1.875rem;
 }
 
 .photo-container {
@@ -135,9 +136,10 @@ h6 {
 }
 
 .photo-placeholder {
-    width: 250px;
-    height: 250px;
-    border-radius: 20px;
+    width: min(250px, 70%);
+    height: auto;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
     overflow: hidden;
     background: linear-gradient(135deg, var(--accent-cyan), var(--accent-pink));
     border: 3px solid var(--accent-cyan);
@@ -159,7 +161,7 @@ h6 {
 .basic-info {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: .9375rem;
 }
 
 .name {
@@ -167,18 +169,19 @@ h6 {
     font-weight: 700;
     color: var(--accent-cyan);
     text-shadow: 0 0 10px var(--accent-cyan);
-    margin-bottom: 10px;
+    margin-bottom: .625rem;
 }
 
 .info-item {
     display: flex;
-    gap: 10px;
+    flex-wrap: wrap;
+    gap: .625rem;
 }
 
 .info-label {
     font-weight: 600;
     color: var(--accent-cyan);
-    min-width: 100px;
+    min-width: auto;
 }
 
 .info-value {
@@ -188,53 +191,53 @@ h6 {
 .personal-right {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 1.875rem;
 }
 
 .section-title {
     font-size: 2rem;
     font-weight: 600;
     color: var(--accent-cyan);
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 
 .soft-skills {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 1rem;
 }
 
 .soft-skills li {
     display: flex;
     align-items: flex-start;
     text-align: justify;
-    gap: 12px;
+    gap: .75rem;
     color: var(--text-white);
 }
 
 .cyan-dot {
-    width: 8px;
-    height: 8px;
+    width: .5rem;
+    height: .5rem;
     border-radius: 50%;
     background: var(--accent-cyan);
     box-shadow: 0 0 5px var(--accent-cyan);
     flex-shrink: 0;
-    margin-top: 6px;
+    margin-top: .375rem;
 }
 
 .github-btn {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 12px 24px;
+    gap: .625rem;
+    padding: .75rem 1.5rem;
     background: transparent;
     border: 2px solid var(--accent-cyan);
     color: var(--accent-cyan);
     text-decoration: none;
     font-weight: 600;
     border-radius: 8px;
-    transition: all 0.3s ease;
+    transition: all .3s ease;
     box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
     width: fit-content;
 }
@@ -255,12 +258,11 @@ h6 {
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    position: relative;
 }
 
 .section-header {
     text-align: center;
-    padding: 30px 20px 10px;
+    padding: 1.875rem 1.25rem 0.625rem;
     flex-shrink: 0;
     background-color: #0a0a0f;
     z-index: 10;
@@ -271,8 +273,8 @@ h6 {
     max-width: 1200px;
     margin: 0 auto;
     min-height: 0;
-    overflow-y: scroll;
-    padding: 60px;
+    overflow-y: auto;
+    padding: 3.75rem;
     scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -285,8 +287,8 @@ h6 {
 .stack-card {
     background-color: #14141f;
     border-radius: 16px;
-    padding: 60px;
-    margin-bottom: 40px;
+    padding: 3.75rem;
+    margin-bottom: 2.5rem;
     box-shadow: 0 0 5px cyan, 0 0 10px cyan, inset 0 0 3px rgba(0, 255, 255, 0.2);
     transition: all 0.3s ease;
     position: sticky;
@@ -303,23 +305,23 @@ h6 {
 .stack-card h3 {
     font-family: 'Space Grotesk', sans-serif;
     color: #00ffff;
-    margin-bottom: 15px;
+    margin-bottom: .9375rem;
     font-size: 1.5rem;
 }
 
 .tags {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 20px;
-    gap: 8px;
+    margin-top: 1.25rem;
+    gap: .5rem;
 }
 
 .tags span {
     background-color: #1e1e2a;
     color: #ccc;
-    padding: 6px 14px;
+    padding: .375rem .875rem;
     border-radius: 30px;
-    font-size: 0.9rem;
+    font-size: .9rem;
     border: 1px solid #333;
     transition: all 0.2s;
 }
@@ -380,7 +382,7 @@ h6 {
     background-color: var(--bg-primary);
     width: 100%;
     min-height: 100vh;
-    padding: 120px 0 80px;
+    padding: 7.5rem 0 5rem;
     overflow: hidden;
 }
 
@@ -406,7 +408,7 @@ h6 {
         0 0 10px var(--accent-cyan),
         0 0 20px var(--accent-cyan),
         0 0 30px var(--accent-cyan);
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     animation: neonGlow 2s ease-in-out infinite alternate;
 }
 
@@ -431,14 +433,14 @@ h6 {
     text-align: center;
     font-size: 1.2rem;
     color: var(--text-gray);
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem;
 }
 
 .game-container {
     width: 80%;
     max-width: 800px;
     height: 600px;
-    margin: 0 auto 40px;
+    margin: 0 auto 2.5rem;
     border: 2px dashed var(--accent-cyan);
     border-radius: 8px;
     display: flex;
@@ -452,18 +454,18 @@ h6 {
     color: var(--text-gray);
     font-size: 1.1rem;
     text-align: center;
-    padding: 20px;
+    padding: 1.25rem;
 }
 
 .game-controls {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 30px;
+    gap: 1.875rem;
 }
 
 .start-btn {
-    padding: 15px 40px;
+    padding: .9375rem 2.5rem;
     font-size: 1.2rem;
     font-weight: 700;
     font-family: 'Space Grotesk', sans-serif;
@@ -498,7 +500,7 @@ h6 {
 
 .game-stats {
     display: flex;
-    gap: 60px;
+    gap: 3.75rem;
     align-items: flex-start;
 }
 
@@ -511,7 +513,7 @@ h6 {
 .high-scores h3 {
     font-size: 1.2rem;
     color: var(--accent-cyan);
-    margin-bottom: 10px;
+    margin-bottom: .625rem;
     text-align: center;
 }
 
@@ -521,44 +523,37 @@ h6 {
 }
 
 .scores-table td {
-    padding: 5px 15px;
+    padding: .3125rem .9375rem;
     border: 1px solid rgba(0, 255, 255, 0.2);
-}
-
-.game-note {
-    text-align: center;
-    color: var(--text-gray);
-    font-size: 0.9rem;
-    margin-top: 30px;
 }
 
 /* SECTION 4 — CONTACT */
 .contact-section {
-    padding: 120px 0;
+    padding: 7.5rem 0;
 }
 
 .contact-section .section-title {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 60px;
+    margin-bottom: 3.75rem;
 }
 
 .contact-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 120px;
+    gap: 7.5rem;
 }
 
 .contact-left {
     display: flex;
     flex-direction: column;
-    gap: 25px;
+    gap: 1.5625rem;
 }
 
 .contact-item {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: .9375rem;
 }
 
 .contact-icon {
@@ -586,8 +581,8 @@ h6 {
 }
 
 .contact-info {
-    margin-top: 20px;
-    padding-top: 20px;
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
     border-top: 1px solid rgba(0, 255, 255, 0.2);
     color: var(--text-gray);
 }
@@ -600,24 +595,24 @@ h6 {
 .contact-form {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.25rem;
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: .5rem;
 }
 
 .form-group label {
     color: var(--accent-cyan);
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: .9rem;
 }
 
 .form-group input,
 .form-group textarea {
-    padding: 12px 16px;
+    padding: .75rem 1rem;
     background: var(--bg-card);
     border: 2px solid rgba(0, 255, 255, 0.2);
     border-radius: 8px;
@@ -636,11 +631,11 @@ h6 {
 
 .form-group textarea {
     resize: vertical;
-    min-height: 120px;
+    min-height: 7.5rem;
 }
 
 .submit-btn {
-    padding: 15px 30px;
+    padding: .9375rem 1.875rem;
     font-size: 1.1rem;
     font-weight: 600;
     font-family: 'Space Grotesk', sans-serif;
@@ -649,10 +644,10 @@ h6 {
     color: var(--accent-cyan);
     border-radius: 8px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all .3s ease;
     box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
     animation: pulse 2s ease-in-out infinite;
-    margin-top: 10px;
+    margin-top: .625rem;
 }
 
 .submit-btn:hover {
@@ -664,19 +659,56 @@ h6 {
 
 /* FOOTER */
 .footer {
-    padding: 40px 0;
+    padding: 2.5rem 0;
     text-align: center;
     border-top: 1px solid rgba(0, 255, 255, 0.1);
     color: var(--text-gray);
 }
 
+/* General styles */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: opacity 2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: opacity, transform;
+}
+
+.fade-in-section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact-link,
+.github-btn,
+.info-value,
+.soft-skills li {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
 /* Responsive Design */
 @media (max-width: 968px) {
+    .personal-info-grid {
+        padding: 1.5rem 1.1rem;
+    }
 
     .personal-info-grid,
     .contact-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 2.5rem;
+    }
+
+    .photo-container {
+        justify-content: center;
+    }
+
+    .cards-scroll-container {
+        padding: 2.5rem 1.875rem;
+    }
+
+    .stack-card {
+        padding: 1.5rem 1.25rem;
     }
 
     .game-title {
@@ -690,23 +722,32 @@ h6 {
 
     .game-stats {
         flex-direction: column;
-        gap: 30px;
+        gap: 1.875rem;
         align-items: center;
     }
 
     .nav-menu {
         gap: 1rem;
-        font-size: 0.9rem;
+        font-size: .9rem;
     }
 }
 
 @media (max-width: 640px) {
     .section {
-        padding: 60px 0;
+        padding: 3rem 0;
     }
 
     .personal-info {
-        padding-top: 100px;
+        padding-top: 6.25rem;
+    }
+
+    .photo-placeholder {
+        width: 200px;
+        height: 200px;
+    }
+
+    .soft-skills {
+        font-size: .875rem;
     }
 
     .name {
@@ -723,11 +764,43 @@ h6 {
 
     .nav-menu {
         flex-direction: column;
-        gap: 0.5rem;
+        gap: .5rem;
     }
 
     .tech-stack-section .section-title,
     .contact-section .section-title {
         font-size: 2rem;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        padding: 0 0.75rem;
+    }
+
+    .personal-info-grid {
+        padding: 1rem 0.5rem;
+    }
+
+    .cards-scroll-container {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .stack-card {
+        padding: 1rem 0.75rem;
+    }
+
+    .game-title {
+        font-size: 1.75rem;
+    }
+
+    .start-btn,
+    .submit-btn {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .name {
+        font-size: 1.75rem;
     }
 }
