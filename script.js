@@ -1,19 +1,61 @@
-// Smooth scroll for navigation links
+// Smooth scroll and mobile menu
 document.addEventListener('DOMContentLoaded', function () {
-    // Navbar smooth scroll
-    const navLinks = document.querySelectorAll('.nav-link');
+    // Burger menu 
+    const burger = document.querySelector('.burger');
+    const navMenu = document.querySelector('.nav-menu');
+    const overlay = document.createElement('div');
+    overlay.classList.add('overlay');
+    document.body.appendChild(overlay);
 
+    function closeMenu() {
+        burger.classList.remove('active');
+        navMenu.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    function openMenu() {
+        burger.classList.add('active');
+        navMenu.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    if (burger) {
+        burger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (navMenu.classList.contains('active')) {
+                closeMenu();
+            } else {
+                openMenu();
+            }
+        });
+    }
+
+
+    overlay.addEventListener('click', closeMenu);
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+            closeMenu();
+        }
+    });
+
+    document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', closeMenu);
+    });
+
+    // Smooth scroll for navigation links
+    const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         link.addEventListener('click', function (e) {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
-
             if (targetSection) {
                 const headerOffset = 80;
                 const elementPosition = targetSection.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
                 window.scrollTo({
                     top: offsetPosition,
                     behavior: 'smooth'
@@ -22,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    // Contact form handling (placeholder - non-functional as requested)
+    // Contact form
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
@@ -32,7 +74,6 @@ document.addEventListener('DOMContentLoaded', function () {
             submitBtn.textContent = 'Message Sent!';
             submitBtn.style.background = 'var(--accent-cyan)';
             submitBtn.style.color = 'var(--bg-primary)';
-
             setTimeout(() => {
                 submitBtn.textContent = originalText;
                 submitBtn.style.background = 'transparent';
@@ -42,11 +83,10 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Game START button (placeholder functionality)
+    // Game START button
     const startBtn = document.querySelector('.start-btn');
     if (startBtn) {
         startBtn.addEventListener('click', function () {
-            // Placeholder - game will be embedded later
             this.textContent = 'GAME STARTING...';
             setTimeout(() => {
                 this.textContent = 'START';
@@ -70,35 +110,8 @@ document.addEventListener('DOMContentLoaded', function () {
         lastScroll = currentScroll;
     });
 
-    // Intersection Observer for fade-in animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver(function (entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.style.opacity = '1';
-                entry.target.style.transform = 'translateY(0)';
-            }
-        });
-    }, observerOptions);
-
-    // Observe tech cards for animation
-    const techCards = document.querySelectorAll('.tech-card');
-    techCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-        observer.observe(card);
-    });
-});
-
-// Smooth appearance
-document.addEventListener('DOMContentLoaded', function () {
+    // Smooth appearance
     const fadeElements = document.querySelectorAll('.fade-in-section');
-
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -106,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     }, {
-        threshold: 0.35,
+        threshold: 0.25,
         rootMargin: '0px 0px -50px 0px'
     });
 

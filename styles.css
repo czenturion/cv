@@ -39,10 +39,8 @@ h6 {
 
 .section {
     padding: 5rem 0;
-    /* min-height: 100vh; */
     display: flex;
     align-items: center;
-    max-height: 1080px;
 }
 
 /* HEADER */
@@ -111,6 +109,70 @@ h6 {
 
 .nav-link:hover::after {
     width: 100%;
+}
+
+/* Burger menu styles */
+.burger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1100;
+}
+
+.burger span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--accent-cyan);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 5px var(--accent-cyan);
+}
+
+.burger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(3px);
+    z-index: 800;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 900;
+}
+
+.neon-title {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--accent-cyan);
+    text-shadow: 0 0 10px var(--accent-cyan), 0 0 20px var(--accent-cyan);
+    margin-bottom: 1.25rem;
+    text-align: center;
 }
 
 /* SECTION 1 — PERSONAL INFO */
@@ -266,7 +328,6 @@ h6 {
     padding: 1.875rem 1.25rem 0.625rem;
     flex-shrink: 0;
     background-color: #0a0a0f;
-    z-index: 10;
 }
 
 .cards-scroll-container {
@@ -286,14 +347,14 @@ h6 {
 }
 
 .stack-card {
+    position: sticky;
+    top: 0;
     background-color: #14141f;
     border-radius: 16px;
     padding: 3.75rem;
     margin-bottom: 2.5rem;
     box-shadow: 0 0 5px cyan, 0 0 10px cyan, inset 0 0 3px rgba(0, 255, 255, 0.2);
     transition: all 0.3s ease;
-    position: sticky;
-    top: 0;
     z-index: calc(var(--order));
 }
 
@@ -347,26 +408,6 @@ h6 {
     }
 }
 
-@keyframes neonFlicker {
-
-    0%,
-    19%,
-    21%,
-    23%,
-    25%,
-    54%,
-    56%,
-    100% {
-        text-shadow: 0 0 5px cyan, 0 0 10px cyan, 0 0 20px cyan;
-    }
-
-    20%,
-    24%,
-    55% {
-        text-shadow: none;
-    }
-}
-
 /* SECTION 3 — GAME PLACEHOLDER */
 .game-section {
     padding: 0;
@@ -382,7 +423,6 @@ h6 {
     position: relative;
     background-color: var(--bg-primary);
     width: 100%;
-    /* min-height: 100vh; */
     padding: 7.5rem 0 5rem;
     overflow: hidden;
 }
@@ -458,6 +498,11 @@ h6 {
     padding: 1.25rem;
 }
 
+.game-placeholder iframe {
+    width: 100%;
+    height: 100%;
+}
+
 .game-controls {
     display: flex;
     flex-direction: column;
@@ -465,10 +510,10 @@ h6 {
     gap: 1.875rem;
 }
 
-.start-btn {
-    padding: .9375rem 2.5rem;
-    font-size: 1.2rem;
-    font-weight: 700;
+.neon-btn {
+    padding: 0.9375rem 1.875rem;
+    font-size: 1.1rem;
+    font-weight: 600;
     font-family: 'Space Grotesk', sans-serif;
     background: transparent;
     border: 2px solid var(--accent-cyan);
@@ -476,8 +521,15 @@ h6 {
     border-radius: 8px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 0 15px var(--accent-cyan);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
     animation: pulse 2s ease-in-out infinite;
+}
+
+.neon-btn:hover {
+    background: var(--accent-cyan);
+    color: var(--bg-primary);
+    box-shadow: 0 0 25px var(--accent-cyan), 0 0 50px rgba(0, 255, 255, 0.6);
+    transform: translateY(-2px);
 }
 
 @keyframes pulse {
@@ -490,13 +542,6 @@ h6 {
     50% {
         box-shadow: 0 0 25px var(--accent-cyan), 0 0 50px rgba(0, 255, 255, 0.6);
     }
-}
-
-.start-btn:hover {
-    background: var(--accent-cyan);
-    color: var(--bg-primary);
-    transform: scale(1.05);
-    box-shadow: 0 0 30px var(--accent-cyan), 0 0 60px rgba(0, 255, 255, 0.8);
 }
 
 .game-stats {
@@ -635,29 +680,6 @@ h6 {
     min-height: 7.5rem;
 }
 
-.submit-btn {
-    padding: .9375rem 1.875rem;
-    font-size: 1.1rem;
-    font-weight: 600;
-    font-family: 'Space Grotesk', sans-serif;
-    background: transparent;
-    border: 2px solid var(--accent-cyan);
-    color: var(--accent-cyan);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all .3s ease;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-    animation: pulse 2s ease-in-out infinite;
-    margin-top: .625rem;
-}
-
-.submit-btn:hover {
-    background: var(--accent-cyan);
-    color: var(--bg-primary);
-    box-shadow: 0 0 25px var(--accent-cyan), 0 0 50px rgba(0, 255, 255, 0.6);
-    transform: translateY(-2px);
-}
-
 /* FOOTER */
 .footer {
     padding: 2.5rem 0;
@@ -669,7 +691,7 @@ h6 {
 /* General styles */
 .fade-in-section {
     opacity: 0;
-    transform: translateY(-40px);
+    transform: translateY(-20px);
     transition: opacity 2s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: opacity, transform;
 }
@@ -690,6 +712,10 @@ h6 {
 
 /* Responsive Design */
 @media (max-width: 968px) {
+    .personal-info {
+        margin: 4rem 0;
+    }
+
     .personal-info-grid {
         padding: 1.5rem 1.1rem;
     }
@@ -727,17 +753,49 @@ h6 {
         align-items: center;
     }
 
+    .burger {
+        display: flex;
+    }
+
     .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 400px;
+        height: 100vh;
+        background: var(--bg-card);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         gap: 1rem;
-        font-size: .9rem;
+        font-size: .8rem;
+        transition: right 0.4s ease;
+        box-shadow: -5px 0 30px rgba(0, 255, 255, 0.2);
+        border-left: 1px solid var(--accent-cyan);
+        z-index: 1000;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu .nav-link {
+        display: block;
+        padding: 1rem 1rem;
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+        box-sizing: border-box;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        list-style: none;
     }
 }
 
 @media (max-width: 640px) {
-    .section {
-        padding: 3rem 0;
-    }
-
     .personal-info {
         padding-top: 6.25rem;
     }
@@ -779,12 +837,16 @@ h6 {
         padding: 0 0.75rem;
     }
 
+    .personal-info {
+        margin: 6rem 0;
+    }
+
     .personal-info-grid {
         padding: 1rem 0.5rem;
     }
 
     .cards-scroll-container {
-        padding: 1.5rem 0.75rem;
+        padding: 3.5rem 0.75rem 2rem;
     }
 
     .stack-card {
