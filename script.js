@@ -65,23 +65,26 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Contact form
-    const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const submitBtn = this.querySelector('.submit-btn');
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = 'Message Sent!';
-            submitBtn.style.background = 'var(--accent-cyan)';
-            submitBtn.style.color = 'var(--bg-primary)';
-            setTimeout(() => {
-                submitBtn.textContent = originalText;
-                submitBtn.style.background = 'transparent';
-                submitBtn.style.color = 'var(--accent-cyan)';
-                this.reset();
-            }, 2000);
-        });
-    }
+    let isSubmitting = false;
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        if (isSubmitting) return;
+        isSubmitting = true;
+        const submitBtn = this.querySelector('.submit-btn');
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Message Sent!';
+        submitBtn.style.background = 'var(--accent-cyan)';
+        submitBtn.style.color = 'var(--bg-primary)';
+        setTimeout(() => {
+            submitBtn.textContent = originalText;
+            submitBtn.style.background = 'transparent';
+            submitBtn.style.color = 'var(--accent-cyan)';
+            this.reset();
+            submitBtn.disabled = false;
+            isSubmitting = false;
+        }, 2000);
+    });
 
     // Game START button
     const startBtn = document.querySelector('.start-btn');

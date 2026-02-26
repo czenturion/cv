@@ -314,13 +314,13 @@ h6 {
 
 /* SECTION 2 — TECH STACK */
 .tech-stack-section {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     max-height: 670px;
     background-color: #0a0a0f;
     color: white;
     font-family: 'Inter', sans-serif;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
 }
 
 .section-header {
@@ -332,6 +332,7 @@ h6 {
 
 .cards-scroll-container {
     flex: 1;
+    width: 100%;
     max-width: 1200px;
     margin: 0 auto;
     min-height: 0;
@@ -349,6 +350,7 @@ h6 {
 .stack-card {
     position: sticky;
     top: 0;
+    width: 100%;
     background-color: #14141f;
     border-radius: 16px;
     padding: 3.75rem;
@@ -364,6 +366,10 @@ h6 {
     box-shadow: 0 0 15px cyan, 0 0 30px cyan, 0 0 45px cyan, inset 0 0 15px rgba(0, 255, 255, 0.3);
 }
 
+.stack-card:last-child {
+    margin-bottom: 270px;
+}
+
 .stack-card h3 {
     font-family: 'Space Grotesk', sans-serif;
     color: #00ffff;
@@ -373,12 +379,20 @@ h6 {
 
 .tags {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 0.5rem;
     margin-top: 1.25rem;
     gap: .5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent-cyan) rgba(0, 255, 255, 0.1);
 }
 
 .tags span {
+    display: inline-block;
+    white-space: nowrap;
     background-color: #1e1e2a;
     color: #ccc;
     padding: .375rem .875rem;
@@ -389,10 +403,29 @@ h6 {
 }
 
 .tags span:hover {
+    color: white;
     border-color: #00ffff;
     box-shadow: 0 0 8px #00ffff;
-    color: white;
 }
+
+.tags::-webkit-scrollbar {
+    height: 4px;
+}
+
+.tags::-webkit-scrollbar-track {
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 4px;
+}
+
+.tags::-webkit-scrollbar-thumb {
+    background: var(--accent-cyan);
+    border-radius: 4px;
+}
+
+.tags::-webkit-scrollbar-thumb:hover {
+    background: #00cccc;
+}
+
 
 @keyframes neonShift {
     0% {
