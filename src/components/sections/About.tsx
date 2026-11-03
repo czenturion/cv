@@ -5,7 +5,7 @@ import { profile } from '@/data/profile'
 
 export function About() {
   return (
-    <section id="about" className="mx-auto max-w-4xl px-5 pt-20 md:px-8">
+    <section id="about" className="mx-auto max-w-4xl px-5 pt-28 md:px-8">
       <div className="flex flex-col items-center gap-8 border-b border-white/10 pb-14 sm:flex-row sm:justify-between sm:gap-12">
         <img
           src={photo}
