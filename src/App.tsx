@@ -13,8 +13,8 @@ function App() {
       <main>
         <About />
         <TechStack />
-        <SoftSkills />
         <Projects />
+        <SoftSkills />
         <Contact />
       </main>
       <Footer />
