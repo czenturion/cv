@@ -4,6 +4,7 @@ const links = [
   { href: '#about', label: 'About' },
   { href: '#tech-stack', label: 'Tech Stack' },
   { href: '#soft-skills', label: 'Soft Skills' },
+  { href: '#projects', label: 'Projects' },
   { href: '#contact', label: 'Contact' },
 ]
 
@@ -47,7 +48,7 @@ export function Header() {
         <nav
           className={`${isOpen ? 'block' : 'hidden'} absolute inset-x-0 top-full border-b border-neon-cyan/10 bg-night px-5 py-3 sm:static sm:block sm:border-0 sm:bg-transparent sm:p-0`}
         >
-          <ul className="flex flex-col sm:flex-row sm:gap-8">
+          <ul className="flex flex-col sm:flex-row sm:gap-5 md:gap-8">
             {links.map(({ href, label }) => (
               <li key={href}>
                 <a
