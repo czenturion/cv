@@ -1,5 +1,6 @@
 import { useEffect, useRef, type PointerEvent } from 'react'
 import { Card } from '@/components/ui/Card'
+import { Tag } from '@/components/ui/Tag'
 import { stack } from '@/data/stack'
 
 const ANGLE_STEP = 360 / stack.length
@@ -71,12 +72,7 @@ export function TechStack() {
             >
               <ul className="mt-3 flex flex-wrap gap-2">
                 {items.map((item) => (
-                  <li
-                    key={item}
-                    className="rounded-md border border-white/10 px-2.5 py-1 text-sm text-white/70"
-                  >
-                    {item}
-                  </li>
+                  <Tag key={item}>{item}</Tag>
                 ))}
               </ul>
             </Card>
