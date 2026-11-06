@@ -23,7 +23,7 @@ export function About() {
               <GithubIcon className="size-5" />
               GitHub
             </ButtonLink>
-            <ButtonLink href="#contact">Contact</ButtonLink>
+            <ButtonLink href={`${import.meta.env.BASE_URL}resume.html`}>Resume (RU)</ButtonLink>
           </div>
         </div>
       </div>
