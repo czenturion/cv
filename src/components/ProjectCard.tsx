@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Card } from '@/components/ui/Card'
 import { GithubIcon } from '@/components/ui/GithubIcon'
+import { ArrowUpRightIcon } from '@/components/ui/LineIcons'
 import { Tag } from '@/components/ui/Tag'
 import type { Project, Screenshot } from '@/data/projects'
 import { useInView } from '@/hooks/useInView'
@@ -50,7 +51,8 @@ export function ProjectCard({ title, task, done, stack, images, demo, code }: Pr
       <div className="mt-auto flex gap-6 pt-5">
         {demo && (
           <a href={demo} target="_blank" rel="noreferrer" className={linkClass}>
-            Demo ↗
+            Demo
+            <ArrowUpRightIcon className="size-4" />
           </a>
         )}
         <a href={code} target="_blank" rel="noreferrer" className={linkClass}>
