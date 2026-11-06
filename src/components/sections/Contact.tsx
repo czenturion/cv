@@ -9,8 +9,13 @@ export function Contact() {
         <p className="mt-1 text-white/70">Open to opportunities</p>
       </div>
       <ul className="grid gap-4 sm:grid-cols-2">
-        {contacts.map(({ title, value, href }) => (
-          <Card key={title} title={title} className="relative">
+        {contacts.map(({ title, value, href, icon: Icon }) => (
+          // Two columns: title and link on the left, icon on the right across both rows
+          <Card
+            key={title}
+            title={title}
+            className="group relative grid grid-cols-[1fr_auto] items-center gap-x-4"
+          >
             <a
               href={href}
               target={href.startsWith('http') ? '_blank' : undefined}
@@ -19,6 +24,7 @@ export function Contact() {
             >
               {value}
             </a>
+            <Icon className="col-start-2 row-span-2 row-start-1 size-7 text-neon-cyan/60 transition group-hover:text-neon-cyan" />
           </Card>
         ))}
       </ul>
