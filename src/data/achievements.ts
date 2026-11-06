@@ -7,6 +7,7 @@ export type Achievement = {
   details: string[]
   video: string
   videoLabel: string
+  code?: string
 }
 
 export const achievements: Achievement[] = [
@@ -14,12 +15,14 @@ export const achievements: Achievement[] = [
     title: 'Mobile Robotics · 2nd place',
     event: 'NSU Open University Championship (WorldSkills standards) · Novosibirsk, 2018',
     details: [
-      'Remote-controlled robot over Wi-Fi: joystick control, driving by camera view',
-      'The claw picks up billiard balls; the camera reads a QR code above each pocket to check which color it accepts',
-      'I programmed the controller on NI myRIO in LabVIEW: converted physical values into PWM signals for the motors',
+      'Remote-controlled robot: joystick over Wi-Fi, driving by live camera view. The claw picks up billiard balls; a QR code above each pocket tells which color it accepts',
+      'With our physics professor, I built the motion model (wheel radius, track width) so the robot drives set distances and turns precisely',
+      'Set up the Wi-Fi link and video stream; at the venue we scanned channel load to pick the cleanest one',
+      'Stack: NI myRIO-1900, LabVIEW, FPGA',
     ],
     video: mobileRobotics,
-    videoLabel: 'Robot with a claw drives around the competition arena',
+    videoLabel: 'Diploma and medal, then the robot with a claw drives around the competition arena',
+    code: 'https://github.com/czenturion/wsr-mobile-robotics',
   },
   {
     title: 'Robot Biathlon · 3rd place',
