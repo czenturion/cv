@@ -1,6 +1,3 @@
-// Line icons in the Feather Icons style (MIT), drawn with the current text color.
-// Own SVG instead of symbols like ↗: phones may draw such symbols as colored emoji.
-
 type IconProps = { className?: string }
 
 const lineProps = {

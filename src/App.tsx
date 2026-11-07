@@ -4,7 +4,7 @@ import { About } from '@/components/sections/About'
 import { Achievements } from '@/components/sections/Achievements'
 import { Contact } from '@/components/sections/Contact'
 import { Projects } from '@/components/sections/Projects'
-import { SoftSkills } from '@/components/sections/SoftSkills'
+import { HowIWork } from '@/components/sections/HowIWork'
 import { TechStack } from '@/components/sections/TechStack'
 import { Reveal } from '@/components/ui/Reveal'
 
@@ -13,7 +13,6 @@ function App() {
     <>
       <Header />
       <main>
-        {/* About is the first screen, so it shows at once without animation */}
         <About />
         <Reveal>
           <TechStack />
@@ -25,7 +24,7 @@ function App() {
           <Achievements />
         </Reveal>
         <Reveal>
-          <SoftSkills />
+          <HowIWork />
         </Reveal>
         <Reveal>
           <Contact />

@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 type Options = {
-  /** How much of the element must be visible, from 0 to 1 */
   threshold?: number
-  /** Stay `true` after the first time the element is seen */
   once?: boolean
 }
 

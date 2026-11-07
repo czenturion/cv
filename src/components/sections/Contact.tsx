@@ -10,7 +10,6 @@ export function Contact() {
       </div>
       <ul className="grid gap-4 sm:grid-cols-2">
         {contacts.map(({ title, value, href, icon: Icon }) => (
-          // Two columns: title and link on the left, icon on the right across both rows
           <Card
             key={title}
             title={title}

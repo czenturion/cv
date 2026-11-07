@@ -1,7 +1,3 @@
-/*
-  A4 paper with no page margin: the browser has no space to print its own
-  headers and footers (date, URL). The page margin comes from padding on <main>.
-*/
 @page {
   size: A4;
   margin: 0;

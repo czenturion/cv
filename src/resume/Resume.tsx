@@ -82,7 +82,6 @@ export function Resume({ content }: ResumeProps) {
         </button>
       </div>
 
-      {/* The padding is the page margin: @page has no margin, so the browser prints no headers */}
       <main className="mx-auto my-6 flex max-w-[210mm] flex-col gap-3 bg-white px-[14mm] py-[12mm] text-[12px] leading-snug text-neutral-800 shadow-lg print:my-0 print:shadow-none">
         <header className="flex items-start justify-between gap-6">
           <div>
