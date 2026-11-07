@@ -5,6 +5,7 @@ const links = [
   { href: '#tech-stack', label: 'Tech Stack' },
   { href: '#projects', label: 'Projects' },
   { href: '#achievements', label: 'Achievements' },
+  { href: '#how-i-work', label: 'How I Work' },
   { href: '#contact', label: 'Contact' },
 ]
 
@@ -24,12 +25,10 @@ export function Header() {
 
   return (
     <>
-      {/* Overlay: dims the page under the open menu, tap closes the menu.
-          Outside <header>: its backdrop-blur would make `fixed` relative to the header */}
       <div
         aria-hidden="true"
         onClick={() => setIsOpen(false)}
-        className={`${isOpen ? 'visible opacity-100' : 'invisible opacity-0'} fixed inset-x-0 top-16 bottom-0 z-40 bg-night/70 transition-[opacity,visibility] duration-300 ease-out sm:hidden`}
+        className={`${isOpen ? 'visible opacity-100' : 'invisible opacity-0'} fixed inset-x-0 top-16 bottom-0 z-40 bg-night/70 transition-[opacity,visibility] duration-300 ease-out md:hidden`}
       />
       <header className="fixed inset-x-0 top-0 z-50 border-b border-neon-cyan/10 bg-night/95 backdrop-blur">
         <div className="mx-auto flex h-16 max-w-4xl items-center justify-between px-5 md:px-8">
@@ -45,34 +44,29 @@ export function Header() {
             aria-label="Menu"
             aria-expanded={isOpen}
             onClick={() => setIsOpen(!isOpen)}
-            className="flex h-5 w-7 flex-col justify-between sm:hidden"
+            className="flex h-5 w-7 flex-col justify-between md:hidden"
           >
             <span
               className={`h-0.5 bg-neon-cyan transition ${isOpen ? 'translate-y-[9px] rotate-45' : ''}`}
             />
-            {/* Opening: waits 50ms, then fades out in 75ms. Closing: waits 75ms, then fades in for 75ms,
-              so it is fully back when the outer lines finish their 150ms turn */}
             <span
-              className={`h-0.5 bg-neon-cyan transition-opacity duration-75 ${isOpen ? 'opacity-0 delay-50' : 'delay-75'}`}
+              className={`h-0.5 bg-neon-cyan transition-opacity duration-75 ${isOpen ? 'opacity-0 delay-30' : 'delay-75'}`}
             />
             <span
               className={`h-0.5 bg-neon-cyan transition ${isOpen ? '-translate-y-[9px] -rotate-45' : ''}`}
             />
           </button>
 
-          {/* `invisible` instead of `hidden`: display can't be animated, opacity and visibility can.
-            Plain `transition` in Tailwind 4 skips visibility, so the properties are listed by hand */}
           <nav
-            className={`${isOpen ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-2 opacity-0'} absolute inset-x-0 top-full border-b border-neon-cyan/10 bg-night px-5 py-3 transition-[opacity,translate,visibility] duration-300 ease-out sm:visible sm:static sm:translate-y-0 sm:border-0 sm:bg-transparent sm:p-0 sm:opacity-100 sm:transition-none`}
+            className={`${isOpen ? 'visible translate-y-0 opacity-100' : 'invisible -translate-y-2 opacity-0'} absolute inset-x-0 top-full border-b border-neon-cyan/10 bg-night px-5 py-3 transition-[opacity,translate,visibility] duration-300 ease-out md:visible md:static md:translate-y-0 md:border-0 md:bg-transparent md:p-0 md:opacity-100 md:transition-none`}
           >
-            {/* On mobile the links sit on the right, near the menu button, for one-hand use */}
-            <ul className="flex flex-col text-right sm:flex-row sm:gap-5 sm:text-left md:gap-8">
+            <ul className="flex flex-col text-right md:flex-row md:gap-5 md:text-left lg:gap-8">
               {links.map(({ href, label }) => (
                 <li key={href}>
                   <a
                     href={href}
                     onClick={() => setIsOpen(false)}
-                    className="block py-3 font-medium transition hover:text-neon-cyan sm:py-0"
+                    className="block py-3 font-medium whitespace-nowrap transition hover:text-neon-cyan md:py-0"
                   >
                     {label}
                   </a>

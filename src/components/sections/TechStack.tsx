@@ -4,8 +4,8 @@ import { Tag } from '@/components/ui/Tag'
 import { stack } from '@/data/stack'
 
 const ANGLE_STEP = 360 / stack.length
-const AUTO_SPEED = 0.012 // degrees per ms
-const DRAG_SPEED = 0.3 // degrees per px
+const AUTO_SPEED = 0.012
+const DRAG_SPEED = 0.3
 
 export function TechStack() {
   const areaRef = useRef<HTMLDivElement>(null)
@@ -33,10 +33,6 @@ export function TechStack() {
     return () => cancelAnimationFrame(frameId)
   }, [])
 
-  // Touch: decide the direction on the first move. Horizontal → block page scroll
-  // until the finger is lifted, so the drag doesn't break if the finger drifts up or down.
-  // Vertical → do nothing and let the page scroll.
-  // Added by hand: React touch listeners are passive, and preventDefault doesn't work in them.
   useEffect(() => {
     const area = areaRef.current
     if (!area) return

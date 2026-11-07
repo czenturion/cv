@@ -9,8 +9,8 @@ import { useRotatingIndex } from '@/hooks/useRotatingIndex'
 
 const canHover = window.matchMedia('(hover: hover)').matches
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-const HOVER_INTERVAL = 2000 // ms
-const AUTO_INTERVAL = 5000 // ms
+const HOVER_INTERVAL = 2000
+const AUTO_INTERVAL = 5000
 
 const linkClass = 'inline-flex items-center gap-1.5 font-medium transition hover:text-neon-cyan'
 
